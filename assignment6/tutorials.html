@@ -1,0 +1,58 @@
+<!doctype html>
+<html ng-app="myapp">
+
+<head>
+
+  <meta charset="utf-8">
+  
+  <title>Angular Tutorials</title>
+  <script src="http://code.angularjs.org/1.1.4/angular.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  
+  <!--Bootstrap- Latest compiled and minified JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+  
+  <!--Javscript-->
+  <script src="app.js"></script>
+  <script src= "sorttable.js"></script>
+  <!--Bootstrap CSS-->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+  <script>
+$(document).ready(function() 
+    { 
+        $("#myTable").tablesorter(); 
+    } 
+); 
+  </script>
+</head>
+
+<body ng-controller="myController">
+<table id ="myTable" class = "table">
+<thead>
+	<tr>
+		<th>Image</th>
+		<th>Title</th>
+		<th>Author</th>
+		<th>Website</th>
+	</tr>
+</thead>
+<tbody>
+    <tr ng-repeat="tut in tuts">
+	  <td>
+		<img class="tutorialImage" src="{{tut.image}}"></img>
+	  </td>
+      <td>
+        {{ tut.title }}	
+      </td>
+	  <td>
+		{{tut.author}}
+	  </td>
+	  <td>
+		<a href="{{tut.url}}" target="_blank">Click to go to tutorial</a>
+	  </td>
+    </tr>
+</tbody>
+</table>
+  </body>
+
+</html>
